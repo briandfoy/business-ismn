@@ -1,5 +1,3 @@
-$Id: README,v 1.1 2004/09/16 15:58:26 comdog Exp $
-
 You can install this using in the usual Perl fashion
 
 	perl Makefile.PL
