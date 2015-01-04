@@ -1,4 +1,4 @@
-# Changes for Business::ISMN
+Revision history for Perl module Business::ISMN
 
 1.12 - Fri Nov 21 23:06:24 2014
 	* RT #100506 : Fix package name
