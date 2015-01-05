@@ -1,5 +1,9 @@
 Revision history for Perl module Business::ISMN
 
+1.13 - Fri Nov 28 00:42:54 2014
+	* Reqire a recent Tie::Cycle. Some CPAN testers picked up a ghost
+	version somehow.
+
 1.12 - Fri Nov 21 23:06:24 2014
 	* RT #100506 : Fix package name
 	* Modernize distro
