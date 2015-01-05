@@ -21,13 +21,13 @@
 	* Added a POD coverage test and fixed up the problems it found
 
 1.5 - Thu Sep 16 11:10:52 2004
-* distro cleanups: no need to upgrade
+	* distro cleanups: no need to upgrade
 
 1.2 - Wed Oct  9 01:16:03 CDT 2002
-	+ cleaned up distribution---no code changes
+	* cleaned up distribution---no code changes
 
 1.2 - Mon Sep  9 14:55:31 CDT 2002
-	+ fixed checksum routine
+	* fixed checksum routine
 
 1.1 - Mon Sep  9 11:41:43 CDT 2002
-	+ first version of Business::ISMN
+	* first version of Business::ISMN
