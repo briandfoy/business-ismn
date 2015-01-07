@@ -4,31 +4,43 @@ use warnings;
 
 
 my $github    = 'https://github.com/briandfoy/';
-my $main_file = 'lib/';
+my $main_file = 'lib/Business/ISMN.pm';
 
 my %WriteMakefile = (
     'NAME'  	 	=> 'Business::ISMN',
-    'VERSION_FROM' 	=> 'lib/Business/ISMN.pm', 
+    'VERSION_FROM' 	=> $main_file, 
+	'ABSTRACT_FROM' => $main_file,
 	'LICENSE'       => 'perl',
 	'AUTHOR'        => 'brian d foy <bdfoy@cpan.org>',
-	'ABSTRACT_FROM' => $main_file;	
+
+	'CONFIGURE_REQUIRES' => {
+		'ExtUtils::MakeMaker' => '6.64',
+		},
+
+	'BUILD_REQUIRES' => {
+		},
+
+	'TEST_REQUIRES' => {
+		'Test::More' => '0.95',
+		},
+
     'PREREQ_PM'     => {
     	'List::Util'       => '0',
     	'Tie::Cycle'       => '1.21',
     	},
 
-	'TEST_REQUIRES' => {
-		'Test::More'  => '0.95',
-		},
-
 	'META_MERGE' => {
 		'meta-spec' => { version => 2 },
-			resources => {
-				repository => {
-					type => 'git',
-					url  => 'https://github.com/briandfoy/business--isbn.git',
-					web  => 'https://github.com/briandfoy/business--isbn',
+		resources => {
+			repository => {
+				type => 'git',
+				url  => "$github.git",
+				web  => $github,
 				},
+			bugtraker => {
+				web    => "$github/issues",
+				},
+			homepage => $github,
 			},
 		},
 
