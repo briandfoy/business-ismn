@@ -2,12 +2,14 @@ require 5.008;
 use strict;
 use warnings;
 
+use File::Spec::Functions qw(catfile);
 
-my $github    = 'https://github.com/briandfoy/';
-my $main_file = 'lib/Business/ISMN.pm';
+my $module    = 'Business::ISMN';
+my $github    = 'https://github.com/briandfoy/business-ismn';
+my $main_file = catfile( 'lib', split /::/, "$module.pm" );
 
 my %WriteMakefile = (
-    'NAME'  	 	=> 'Business::ISMN',
+    'NAME'  	 	=> $module,
     'VERSION_FROM' 	=> $main_file, 
 	'ABSTRACT_FROM' => $main_file,
 	'LICENSE'       => 'perl',
