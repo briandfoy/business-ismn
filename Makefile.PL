@@ -1,10 +1,12 @@
 require 5.008;
+
+package Business::ISMN;
 use strict;
 use warnings;
 
 use File::Spec::Functions qw(catfile);
 
-my $module    = 'Business::ISMN';
+my $module    = __PACKAGE__;
 ( my $dist = $module ) =~ s/::/-/g;
 
 my $github    = 'https://github.com/briandfoy/business-ismn';
