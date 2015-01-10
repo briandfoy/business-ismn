@@ -49,7 +49,7 @@ my %WriteMakefile = (
 			},
 		},
 
-    clean  => { FILES => 'Business-ISMN-*' },
+	clean => { FILES => "$dist-*" },
 	);
 
 sub arguments { \%WriteMakefile }
