@@ -1,5 +1,6 @@
 Changes
 examples/README
+INSTALL.SKIP
 ismns.txt
 lib/Business/ISMN.pm
 lib/Business/ISMN/Data.pm
