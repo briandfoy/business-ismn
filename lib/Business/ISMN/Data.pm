@@ -3,6 +3,8 @@ use strict;
 
 our $VERSION  = '1.13';
 
+=encoding utf8
+
 =head1 NAME
 
 Business::ISMN::Data - data pack for Business::ISMN

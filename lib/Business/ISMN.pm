@@ -2,7 +2,7 @@ package Business::ISMN;
 use strict;
 
 use base qw(Exporter);
-use subs qw( 
+use subs qw(
 	_common_format _checksum is_valid_checksum
 	INVALID_PUBLISHER_CODE
 	BAD_CHECKSUM
@@ -311,6 +311,8 @@ sub _common_format {
 1;
 
 __END__
+
+=encoding utf8
 
 =head1 NAME
 
