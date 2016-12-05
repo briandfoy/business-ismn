@@ -1,7 +1,7 @@
 package Business::ISMN::Data;
 use strict;
 
-our $VERSION  = '1.13';
+our $VERSION  = '1.131';
 
 =encoding utf8
 
