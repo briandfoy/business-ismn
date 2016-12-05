@@ -1,5 +1,8 @@
 Revision history for Perl module Business::ISMN
 
+1.131 2016-12-05T19:16:19Z
+	* Remove the prereq test, which I'll do locally instead of everywhere.
+
 1.13 - 2014-11-28
 	* Reqire a recent Tie::Cycle. Some CPAN testers picked up a ghost
 	version somehow.
