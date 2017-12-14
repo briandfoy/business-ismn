@@ -546,7 +546,7 @@ what to do.
 
 This source is in Github:
 
-    http://github.com/briandfoy/business--isbn/tree/master
+    https://github.com/briandfoy/business-ismn/
 
 =head1 AUTHOR
 
