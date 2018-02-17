@@ -9,7 +9,7 @@ use subs qw(
 	GOOD_ISMN
 	BAD_ISMN
 	);
-use vars qw( $VERSION @ISA @EXPORT_OK $debug %country_data
+use vars qw( @ISA $debug %country_data
 		$MAX_COUNTRY_CODE_LENGTH );
 
 use Carp qw(carp);
@@ -20,10 +20,10 @@ use Business::ISMN::Data;
 
 my $debug = 0;
 
-@EXPORT_OK = qw(is_valid_checksum ean_to_ismn ismn_to_ean
+our @EXPORT_OK = qw(is_valid_checksum ean_to_ismn ismn_to_ean
 	INVALID_PUBLISHER_CODE BAD_CHECKSUM GOOD_ISMN BAD_ISMN);
 
-$VERSION = '1.132';
+our $VERSION = '1.132';
 
 sub INVALID_PUBLISHER_CODE { -3 };
 sub BAD_CHECKSUM           { -1 };
