@@ -1,7 +1,6 @@
 package Business::ISMN;
 use strict;
 
-use base qw(Exporter);
 use subs qw(
 	_common_format _checksum is_valid_checksum
 	INVALID_PUBLISHER_CODE
@@ -9,11 +8,10 @@ use subs qw(
 	GOOD_ISMN
 	BAD_ISMN
 	);
-use vars qw( @ISA $debug %country_data
-		$MAX_COUNTRY_CODE_LENGTH );
+use vars qw( $debug %country_data $MAX_COUNTRY_CODE_LENGTH );
 
 use Carp qw(carp);
-use Exporter;
+use Exporter qw(import);
 use List::Util qw(sum);
 use Tie::Cycle;
 use Business::ISMN::Data;
