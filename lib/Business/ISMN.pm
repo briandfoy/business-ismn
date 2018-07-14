@@ -41,8 +41,7 @@ my %Lengths = qw(
 	9 7
 	);
 
-sub new
-	{
+sub new {
 	my $class       = shift;
 	my $common_data = _common_format shift;
 
@@ -96,8 +95,7 @@ sub checksum ()         { my $self = shift; return $self->{'checksum'} }
 sub hyphen_positions () { my $self = shift; return @{$self->{'positions'}} }
 
 
-sub fix_checksum
-	{
+sub fix_checksum {
 	my $self = shift;
 
 	my $last_char = substr($self->{'ismn'}, 9, 1);
@@ -111,8 +109,7 @@ sub fix_checksum
 	return 1;
 	}
 
-sub as_string
-	{
+sub as_string {
 	my $self      = shift;
 	my $array_ref = shift;
 
@@ -132,8 +129,7 @@ sub as_string
 	return $ismn;
 	}
 
-sub as_ean
-	{
+sub as_ean {
 	my $self = shift;
 
 	my $ismn = ref $self ? $self->as_string([]) : _common_format $self;
@@ -146,8 +142,7 @@ sub as_ean
 	my $ean = '979' . substr($ismn, 0, 9);
 
 	my $sum = 0;
-	foreach my $index ( 0, 2, 4, 6, 8, 10 )
-		{
+	foreach my $index ( 0, 2, 4, 6, 8, 10 ) {
 		$sum +=     substr($ean, $index, 1);
 		$sum += 3 * substr($ean, $index + 1, 1);
 		}
@@ -160,20 +155,17 @@ sub as_ean
 	return $ean;
 	}
 
-sub is_valid_publisher_code
-	{
+sub is_valid_publisher_code {
 	my $self = shift;
 	my $code = $self->publisher_code;
 
 	my $success = 0;
 
-	foreach my $tuple ( @publisher_tuples )
-		{
+	foreach my $tuple ( @publisher_tuples ) {
 		no warnings;
 		next if( defined $tuple->[2] and $code > $tuple->[2] );
 		last if $code < $tuple->[1];
-		if( $code >= $tuple->[1] and $code <= $tuple->[2] )
-			{
+		if( $code >= $tuple->[1] and $code <= $tuple->[2] ) {
 			$success = 1;
 			$self->{'publisher'} = $tuple->[0];
 			last;
@@ -183,8 +175,7 @@ sub is_valid_publisher_code
 	return $success;
 	}
 
-sub is_valid_checksum
-	{
+sub is_valid_checksum {
 	my $data = _common_format shift;
 
 	return BAD_ISMN unless defined $data;
@@ -194,8 +185,7 @@ sub is_valid_checksum
 	return BAD_CHECKSUM;
 	}
 
-sub ean_to_ismn
-	{
+sub ean_to_ismn {
 	my $ean = shift;
 
 	$ean =~ s/[^0-9]//g;
@@ -214,8 +204,7 @@ sub ean_to_ismn
 	}
 
 
-sub ismn_to_ean
-	{
+sub ismn_to_ean {
 	my $ismn = _common_format shift;
 
 	return unless (defined $ismn and is_valid_checksum($ismn) eq GOOD_ISMN);
@@ -223,15 +212,13 @@ sub ismn_to_ean
 	return as_ean($ismn);
 	}
 
-sub png_barcode
-	{
+sub png_barcode {
 	my $self = shift;
 
 	my $ean = ismn_to_ean( $self->as_string([]) );
 
 	eval "use GD::Barcode::EAN13";
-	if( $@ )
-		{
+	if( $@ ) {
 		carp "GD::Barcode::EAN13 required to make PNG barcodes";
 		return;
 		}
@@ -242,17 +229,14 @@ sub png_barcode
 	}
 
 #internal function.  you don't get to use this one.
-sub _check_validity
-	{
+sub _check_validity {
 	my $self = shift;
 
 	if( is_valid_checksum $self->{'ismn'} eq GOOD_ISMN
-	    and defined $self->{'publisher_code'} )
-	    {
+	    and defined $self->{'publisher_code'} ) {
 	    $self->{'valid'} = GOOD_ISMN;
 	    }
-	else
-		{
+	else {
 		$self->{'valid'} = INVALID_PUBLISHER_CODE
 			unless defined $self->{'publisher_code'};
 		$self->{'valid'} = GOOD_ISMN
@@ -261,8 +245,7 @@ sub _check_validity
 	}
 
 #internal function.  you don't get to use this one.
-sub _checksum
-	{
+sub _checksum {
 	my $data = _common_format shift;
 
 	tie my $factor, 'Tie::Cycle', [ 1, 3 ];
@@ -270,12 +253,10 @@ sub _checksum
 
 	my $sum = 9;
 
-	foreach my $digit ( split //, substr( $data, 1, 8 ) )
-		{
+	foreach my $digit ( split //, substr( $data, 1, 8 ) ) {
 		my $mult = $factor;
 		$sum += $digit * $mult;
 		}
-
 
 	#return what the check digit should be
 	# the extra mod 10 turns 10 into 0.
