@@ -1,4 +1,4 @@
-use Test::More tests => 18;
+use Test::More tests => 19;
 
 use Business::ISMN;
 
@@ -16,6 +16,7 @@ my $SHORT_ISMN         = "M156592";
 my $ismn = Business::ISMN->new( $GOOD_ISMN );
 isa_ok( $ismn, 'Business::ISMN' );
 is( $ismn->is_valid, Business::ISMN::GOOD_ISMN, "$GOOD_ISMN is valid" );
+is( $ismn->publisher, 'LT', "$GOOD_ISMN has right country code");
 is( $ismn->publisher_code, $PUBLISHER, "$GOOD_ISMN has right publisher");
 is( $ismn->as_string, $GOOD_ISMN_STRING, "$GOOD_ISMN stringifies correctly");
 is( $ismn->as_string([]), $GOOD_ISMN, "$GOOD_ISMN stringifies correctly");
