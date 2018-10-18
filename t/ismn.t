@@ -17,7 +17,7 @@ my $SHORT_ISMN         = 'M156592';
 my $ismn = Business::ISMN->new( $GOOD_ISMN );
 isa_ok( $ismn, 'Business::ISMN' );
 is( $ismn->is_valid,       Business::ISMN::GOOD_ISMN, "$GOOD_ISMN is valid" );
-is( $ismn->country,        $COUNTRY_STRING,   "$GOOD_ISMN has publisher string");
+is( $ismn->country,        $COUNTRY_STRING,   "$GOOD_ISMN has right country");
 is( $ismn->publisher_code, $PUBLISHER_CODE,   "$GOOD_ISMN has right publisher");
 is( $ismn->as_string,      $GOOD_ISMN_STRING, "$GOOD_ISMN stringifies correctly");
 is( $ismn->as_string([]),  $GOOD_ISMN,        "$GOOD_ISMN stringifies correctly");
