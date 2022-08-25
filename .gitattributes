@@ -2,3 +2,4 @@
 *.t linguist-language=Perl
 *.pm linguist-language=Perl
 *.pl linguist-language=Perl
+hacks/prefix.htm linguist-vendored
