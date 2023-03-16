@@ -308,8 +308,8 @@ Business::ISMN - work with International Standard Music Numbers
 
 	use Business::ISMN;
 
-	$ismn_object = new Business::ISMN('M021765430');
-	$ismn_object = new Business::ISMN('M-021-76543-0');
+	$ismn_object = Business::ISMN->new('M021765430');
+	$ismn_object = Business::ISMN->new('M-021-76543-0');
 
 	#print the ISMN with hyphens at positions specified
 	#by constructor
