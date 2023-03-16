@@ -44,9 +44,8 @@ my %Lengths = qw(
 	);
 
 sub new {
-	my $class       = shift;
-	my $common_data = _common_format shift;
-
+	my( $class, $raw_ismn ) = @_;
+	my $common_data = _common_format $raw_ismn;
 	return unless defined $common_data;
 
 	my $self  = {};
@@ -199,10 +198,10 @@ sub ean_to_ismn {
 	$ean =~ s/[^0-9]//g;
 
 	return unless length $ean == 13;
-	return unless substr($ean, 0, 3) eq 979;
+	return unless substr($ean, 0, 4) eq 9790;
 
 	#XXX: fix to change leading 0 back to M
-	my $ismn = Business::ISMN->new( substr($ean, 3, 9) . '1' );
+	my $ismn = Business::ISMN->new( 'M' . substr($ean, 4, 9) );
 
 	$ismn->fix_checksum;
 
