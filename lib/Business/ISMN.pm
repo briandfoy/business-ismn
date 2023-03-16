@@ -534,7 +534,11 @@ what to do.
 
 =head1 TO DO
 
-* i need more ISMN numbers for tests
+=over 4
+
+=item * I need more ISMN numbers for tests
+
+=back
 
 =head1 SOURCE AVAILABILITY
 
