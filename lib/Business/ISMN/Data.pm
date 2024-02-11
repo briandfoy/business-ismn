@@ -3,7 +3,7 @@ use 5.008;
 package Business::ISMN::Data;
 use strict;
 
-our $VERSION  = '1.202';
+our $VERSION  = '1.204';
 
 =encoding utf8
 
